@@ -1,0 +1,137 @@
+<section>
+  <div class="d-flex justify-content-end">
+    <div class="form-row col-md-4 justify-content-end">
+      <div class="col-md-9">
+        <mat-form-field class="w-100">
+          <mat-select
+            name="countryString"
+            [(value)]="settlementId"
+            (selectionChange)="loadReports()"
+            placeholder="Deposit-date settlement-id"
+          >
+            <mat-option [value]="month.value" *ngFor="let month of idDateOption"
+              >{{ month.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-3">
+        <button
+          mat-flat-button
+          color="primary"
+          (click)="onReset()"
+          [disabled]="settlementId === ''"
+        >
+          RESET
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="table-container" *ngIf="dataSource">
+    <div *ngIf="dataSource.data.length === 0" class="card text-center p-4">
+      <div class="h2">No record found.</div>
+    </div>
+
+    <table
+      *ngIf="dataSource.data.length"
+      mat-table
+      mat-sort
+      [dataSource]="dataSource"
+      matSort
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="settlement_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Settlement id</th>
+        <td mat-cell *matCellDef="let element">{{ element.settlement_id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="settlement_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Settlement date
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.settlement_date || "-" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="deposit_date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Deposit date</th>
+        <td mat-cell *matCellDef="let element">
+          {{ (element.deposit_date | date) || "-" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="total_amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Total amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.total_amount }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="transaction_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Transaction type
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.transaction_type }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Order id</th>
+        <td mat-cell *matCellDef="let element">{{ element.order_id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount type</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.amount_type || "-" }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount_description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount desc</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.amount_description }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="order_item_code">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Order item code
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.order_item_code }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="sku">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sku</th>
+        <td mat-cell *matCellDef="let element">{{ element.sku }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity_purchased">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>
+          Quantity purchased
+        </th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.quantity_purchased }}
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      #paginator
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
+  </div>
+</section>

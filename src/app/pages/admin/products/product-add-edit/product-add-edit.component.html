@@ -1,0 +1,101 @@
+<section>
+    <div class="d-flex justify-content-between">
+        <h1>{{ !id ? 'Add': 'Update'}} Product</h1>
+        <div>
+            <a [routerLink]="[ '/admin/product/list']">
+                <img src="/assets/icons/return.svg" class="icons" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="card p-4">
+
+        <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Product Name</mat-label>
+                        <input type="text" formControlName="name" class="input-disabled" matInput
+                            placeholder="Enter product name">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>CP</mat-label>
+                        <input type="number" formControlName="cost_price" class="input-disabled" matInput
+                            placeholder="Enter cp price">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Stock</mat-label>
+                        <input type="number" formControlName="stock" class="input-disabled" matInput
+                            placeholder="Enter stock">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Sku</mat-label>
+                        <input type="text" formControlName="sku" class="input-disabled" matInput
+                            placeholder="Enter product name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <mat-form-field class="w-100">
+                        <mat-label>Description</mat-label>
+                        <textarea formControlName="description" class="input-disabled" matInput></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-2">
+                    <mat-form-field class="w-100">
+                        <mat-label>Weight(gm)</mat-label>
+                        <input type="number" formControlName="weight" class="input-disabled" matInput
+                            placeholder="Weight">
+                    </mat-form-field>
+                </div>
+                <div class="form-group col-md-7 show-flex">
+                    <div class="form-group col-md-3 mt-3">
+                        <mat-label>Dimension(cm)</mat-label>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <mat-form-field class="w-100">
+                            <input type="number" (input)="calculateVolumetricWeight()" formControlName="length"
+                                class="input-disabled" matInput placeholder="l">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <mat-form-field class="w-100">
+                            <input type="number" (input)="calculateVolumetricWeight()" formControlName="bredth"
+                                class="input-disabled" matInput placeholder="b">
+                        </mat-form-field>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <mat-form-field class="w-100">
+                            <input type="number" (input)="calculateVolumetricWeight()" formControlName="height"
+                                class="input-disabled" matInput placeholder="h">
+                        </mat-form-field>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <mat-form-field class="w-100">
+                        <mat-label>Volumetric weight (kg)</mat-label>
+                        <input type="number" readonly class="input-disabled" formControlName="volumetricWeight" matInput
+                            placeholder="Volumetric">
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary pl-4 pr-4" [disabled]="productForm.invalid">{{ !id ? 'Add':
+                'Update'}}</button>
+        </form>
+    </div>
+</section>

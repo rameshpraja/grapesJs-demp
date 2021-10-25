@@ -1,0 +1,135 @@
+{
+    "supplier": [
+        {
+            "supplierId": "s1",
+            "supplierName": "Remo",
+            "mobileNumber": "9999999999",
+            "address": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum odit officia tempore pariatur laborum atque voluptatum. Temporibus ratione, veritatis et eaque nemo at molestias nulla optio minima iste, enim ipsum."
+        },
+        {
+            "supplierId": "s2",
+            "supplierName": "Raghav",
+            "mobileNumber": "8888888888",
+            "address": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum odit officia tempore pariatur laborum atque voluptatum. Temporibus ratione, veritatis et eaque nemo at molestias nulla optio minima iste, enim ipsum."
+        },
+        {
+            "supplierId": "s3",
+            "supplierName": "Shakti",
+            "mobileNumber": "777777777",
+            "address": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum odit officia tempore pariatur laborum atque voluptatum. Temporibus ratione, veritatis et eaque nemo at molestias nulla optio minima iste, enim ipsum."
+        },
+        {
+            "supplierId": "s4",
+            "supplierName": "Dharmesh",
+            "mobileNumber": "666666666",
+            "address": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum odit officia tempore pariatur laborum atque voluptatum. Temporibus ratione, veritatis et eaque nemo at molestias nulla optio minima iste, enim ipsum."
+        }
+    ],
+    "products": [
+        {
+            "productId": "p1",
+            "name": "Casuals Shirt",
+            "cpPrice": 300,
+            "stock": 50,
+            "dimension": {
+                "l": 100,
+                "b": 100,
+                "h": 100
+            },
+            "weight": 1000,
+            "volumetricWeight": 1000
+        },
+        {
+            "productId": "p2",
+            "name": "Men' Jeans",
+            "cpPrice": 400,
+            "stock": 70,
+            "dimension": {
+                "l": 100,
+                "b": 100,
+                "h": 100
+            },
+            "weight": 1000,
+            "volumetricWeight": 1000
+        },
+        {
+            "productId": "p3",
+            "name": "Women's T-shirt",
+            "cpPrice": 500,
+            "stock": 60,
+            "dimension": {
+                "l": 100,
+                "b": 100,
+                "h": 100
+            },
+            "weight": 1000,
+            "volumetricWeight": 1000
+        },
+        {
+            "productId": "p4",
+            "name": "Casuals Shoe",
+            "cpPrice": 700,
+            "stock": 100,
+            "dimension": {
+                "l": 100,
+                "b": 100,
+                "h": 100
+            },
+            "weight": 1000,
+            "volumetricWeight": 1000
+        }
+    ],
+    "expense": [
+        {
+            "expenseId": "e1",
+            "supplierId": "s1",
+            "supplierName": "Remo",
+            "items": [
+                {
+                    "productId": "p1",
+                    "productName": "Casual Shirt",
+                    "price": 400,
+                    "quantity": 50
+                }
+            ],
+            "total": 20000,
+            "billDate": "2020-12-20"
+        },
+        {
+            "expenseId": "e2",
+            "supplierId": "s2",
+            "supplierName": "Raghav",
+            "items": [
+                {
+                    "productId": "p2",
+                    "productName": "Men Jeans",
+                    "price": 300,
+                    "quantity": 50
+                }
+            ],
+            "total": 15000,
+            "billDate": "2020-12-03"
+        },
+        {
+            "expenseId": "e3",
+            "supplierId": "s3",
+            "supplierName": "Shakti",
+            "items": [
+                {
+                    "productId": "p1",
+                    "productName": "Casual Shirt",
+                    "price": 500,
+                    "quantity": 50
+                },
+                {
+                    "productId": "p2",
+                    "productName": "Men' Jeans",
+                    "price": 500,
+                    "quantity": 50
+                }
+            ],
+            "total": 25000,
+            "billDate": "2020-12-04"
+        }
+    ]
+}

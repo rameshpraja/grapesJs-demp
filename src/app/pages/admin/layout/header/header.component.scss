@@ -1,0 +1,13 @@
+@import "src/assets/scss/index";
+header {
+    height: 50px;
+    border-bottom: 1px solid $grey-200;
+    width: 100%;
+    img {
+        width: 40px;
+        height: 30px;
+    }
+    .componentName-container{
+        margin-left: 100px;
+    }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .grid-container {
+        width: 100%;
+        display: flex;
+        grid-template-columns: auto auto auto auto auto auto;
+      }
+      .grid-item {
+        flex-grow: 1;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        min-height: 50px;
+        height: min-content;
+      }
+    </style>
+    <div class="grid-container">
+      <div class="grid-item">
+        <label for="" style="width: 100%;">Lable</label>
+        <input type="text" style="width: 100%;">
+      </div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+  </body>
+</html>

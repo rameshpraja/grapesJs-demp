@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .grid-container {
+        min-width: 100%;
+        display: flex;
+        grid-template-columns: auto auto auto auto auto auto;
+      }
+      .grid-item {
+        flex-grow: 1;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        min-height: 50px;
+        height: min-content;
+        margin: 10px;
+      }
+      /* .grid-item {
+        border: none !important;
+      } */
+    </style>
+    <div class="grid-container">
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+      <div class="grid-item"></div>
+    </div>
+    <script>
+      var gridItem = document.getElementsByClassName("grid-item");
+      var gridContainer = document.getElementsByClassName("grid-container");
+      console.log(gridContainer);
+      gridContainer[0].addEventListener("DOMNodeRemoved", function () {
+        alert("hello");
+      });
+      // gridItem.on("change", function () {
+      // alert("hello2");
+      gridItem[0].style.background = "red";
+      console.log(gridItem);
+      for (let element of gridItem) {
+        if (element.parentElement.className !== "grid-container") {
+          var parent = element.parentNode;
+          var wrapper = document.createElement("div");
+          wrapper.className += "grid-container";
+          parent.replaceChild(wrapper, element);
+          wrapper.appendChild(element);
+        }
+      }
+      // setTimeout();
+      // });
+    </script>
+  </body>
+</html>

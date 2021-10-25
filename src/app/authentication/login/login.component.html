@@ -1,0 +1,65 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-md-4">
+        <div class="container h-100 justify-content-center d-flex flex-column">
+          <p class="h2">Log In</p>
+          <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group">
+              <mat-form-field>
+                <input
+                  type="text"
+                  matInput
+                  placeholder="Email"
+                  formControlName="email"
+                />
+                <mat-error
+                  *ngIf="
+                    !this.loginForm.controls.email.valid &&
+                    this.loginForm.controls.email.touched
+                  "
+                >
+                  email is <strong>required</strong> <br>
+                  
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div class="form-group">
+              <mat-form-field>
+                <input
+                  type="password"
+                  matInput
+                  placeholder="Password"
+                  formControlName="password"
+                />
+                <mat-error
+                  *ngIf="
+                    !this.loginForm.controls.password.valid &&
+                    this.loginForm.controls.password.touched
+                  "
+                >
+                  min length: <strong>6</strong>
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              class="mt-2 w-100"
+              [disabled]="!this.loginForm.valid"
+            >
+              Log In
+            </button>
+          </form>
+          <mat-checkbox class="mt-1" color="primary"
+            >Keep me logged in</mat-checkbox
+          >
+          <span>george.bluth@reqres.in</span>
+        </div>
+      </div>
+      <div class="col-md-8 h-100 d-none d-md-block d-lg-block">
+        <img src="/assets/icons/banner.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+  

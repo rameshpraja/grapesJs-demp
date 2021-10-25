@@ -1,0 +1,9 @@
+<app-header [componentName]="activeComponent"></app-header>
+<section class="main-section">
+    <div class="left-section">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="mt-2 right-section">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+    </div>
+</section>

@@ -1,0 +1,27 @@
+// //to always show sorting arrows
+// ::ng-deep .mat-sort-header-container:not(.mat-sort-header-sorted) .mat-sort-header-arrow {
+//     opacity: 0.54 !important;
+//     transform: translateY(0px) !important;
+// }
+
+@import "src/assets/scss/index";
+
+
+.mat-cell,
+.mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 10px;
+    line-break: unset;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+}
+.mat-row,
+.mat-header-row {
+    display: table-row;
+}
+.mat-error{
+    color: $red;
+}

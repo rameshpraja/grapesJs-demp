@@ -1,0 +1,62 @@
+<section>
+    <div class="d-flex justify-content-between">
+        <h1>{{ !id ? 'Add': 'Update'}} Finance</h1>
+        <div>
+            <a [routerLink]="[ '/admin/finance/list']">
+                <img src="/assets/icons/return.svg" class="icons" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="card p-4" *ngIf="finance">
+
+        <form [formGroup]="financeForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Amount</mat-label>
+                        <input type="text" formControlName="amount" class="input-disabled" matInput
+                            placeholder="Enter Amount">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-select formControlName="action_towards_company"
+                            placeholder="Select action_towards_company">
+                            <mat-option value="credit">Credit</mat-option>
+                            <mat-option value="debit">Debit</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Action Performed At</mat-label>
+                        <input type="date" formControlName="action_performed_at" class="input-disabled" matInput
+                            placeholder="Enter Action performed at">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>User Involved</mat-label>
+                        <input type="text" formControlName="user_involved" class="input-disabled" matInput
+                            placeholder="Enter User involved">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Description</mat-label>
+                        <textarea formControlName="description" class="input-disabled" matInput></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <button type="submit" class="btn btn-primary pl-4 pr-4" [disabled]="financeForm.invalid">{{ finance.id ?
+                'Update': 'Add' }}</button>
+        </form>
+    </div>
+</section>

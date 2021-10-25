@@ -1,0 +1,80 @@
+<!-- start: side navbar -->
+<section class="flex-shrink-0 side-nav">
+  <nav class="nav flex-column">
+    <div class="text-center">
+      <img
+        src="/assets/icons/menu.svg"
+        class="sidebar-icon text-center toggle"
+      />
+    </div>
+    <a
+      [routerLink]="['/admin/purchase/list']"
+      routerLinkActive="active"
+      class="nav-link text-center"
+      matTooltip="Expense"
+      [matTooltipPosition]="'right'"
+    >
+      <img src="/assets/icons/group.svg" class="sidebar-icon" />
+    </a>
+    <a
+      routerLinkActive="active"
+      [routerLink]="['/admin/supplier/list']"
+      class="nav-link text-center"
+      matTooltip="Supplier"
+      [matTooltipPosition]="'right'"
+    >
+      <img src="/assets/icons/group.svg" class="sidebar-icon" />
+    </a>
+    <a
+      routerLinkActive="active"
+      [routerLink]="['/admin/product/list']"
+      class="nav-link text-center"
+      matTooltip="Products"
+      [matTooltipPosition]="'right'"
+    >
+      <img src="/assets/icons/group.svg" class="sidebar-icon" />
+    </a>
+    <a
+      routerLinkActive="active"
+      [routerLink]="['/admin/finance/list']"
+      class="nav-link text-center"
+      matTooltip="Finance"
+      [matTooltipPosition]="'right'"
+    >
+      <img src="/assets/icons/group.svg" class="sidebar-icon" />
+    </a>
+    <ng-template #popContent>
+      <div>
+        <ul class="side-menu">
+          <li routerLink="/admin/reports/sku-monthly-report" routerLinkActive="active" >
+            Sku monthly report
+          </li>
+          <li routerLink="/admin/reports/order-wise-report" routerLinkActive="active" >
+            Order wise report
+          </li>
+          <li routerLink="/admin/reports/overall-monthly-report" routerLinkActive="active">
+            Overall monthly report
+          </li>
+          <li routerLink="/admin/reports/un-settle-report" routerLinkActive="active" >
+            Un-Settlement report
+          </li>
+        </ul>
+      </div>
+    </ng-template>
+    <a
+      class="nav-link text-center"
+      matTooltip="Reports"
+      [matTooltipPosition]="'right'"
+    >
+      <button
+        type="button"
+        placement="right"
+        [ngbPopover]="popContent"
+        class="btn"
+      >
+        <img src="/assets/icons/file.svg" class="sidebar-icon" />
+      </button>
+    </a>
+  </nav>
+</section>
+<!-- end: side navbar -->

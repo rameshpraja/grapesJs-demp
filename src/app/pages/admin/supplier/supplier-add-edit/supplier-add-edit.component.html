@@ -1,0 +1,45 @@
+<section>
+    <div class="d-flex justify-content-between">
+        <h1>{{ !id ? 'Add': 'Update'}} Supplier</h1>
+        <div>
+            <a [routerLink]="[ '/admin/supplier/list']">
+                <img src="/assets/icons/return.svg" class="icons" alt="">
+            </a>
+        </div>
+    </div>
+
+    <div class="card p-4" *ngIf="supplierForm">
+
+        <form [formGroup]="supplierForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Supplier Name</mat-label>
+                        <input type="text" formControlName="supplierName" class="input-disabled" matInput
+                            placeholder="Enter supplier name">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Mobile Number</mat-label>
+                        <input type="number" formControlName="mobileNumber" class="input-disabled" matInput
+                            placeholder="Enter mobile number">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <mat-form-field class="w-100">
+                        <mat-label>Address</mat-label>
+                        <textarea matInput formControlName="address" placeholder="Enter Address"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary pl-4 pr-4" [disabled]="supplierForm.invalid">{{ supplier.id ?
+                'Update': 'Add' }}</button>
+        </form>
+    </div>
+</section>

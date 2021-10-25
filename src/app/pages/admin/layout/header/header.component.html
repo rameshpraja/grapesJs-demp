@@ -1,0 +1,18 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="componentName-container">
+      <div class="h3">{{ this.componentName }}</div>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div [matMenuTriggerFor]="menu" class="ml-auto cursor-pointer">
+        <a>
+          <img src="/assets/icons/profile-user.svg" alt="" />
+        </a>
+      </div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Profile</button>
+        <button mat-menu-item (click)="onLogout()">Logout</button>
+      </mat-menu>
+    </div>
+  </nav>
+</header>

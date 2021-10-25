@@ -1,0 +1,64 @@
+@import "src/assets/scss/index";
+
+.side-nav {
+  border-right: 1px solid $grey-200;
+  background-color: $white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  nav {
+    margin-top: 2rem;
+    img.toggle {
+      width: 40px;
+      margin-bottom: 2rem;
+      cursor: pointer;
+    }
+    a {
+      padding-bottom: 1rem;
+      padding-top: 1rem;
+      cursor: pointer;
+      img {
+        width: 1.5rem;
+        max-width: 80%;
+      }
+      &:hover {
+        background-color: $grey-100;
+        border-right: 2px solid $primary;
+      }
+    }
+    a.active {
+      background-color: $grey-100;
+      border-right: 2px solid $primary;
+    }
+    li.active {
+      color: $primary;
+      font-weight: 500;
+    }
+  }
+}
+
+.side-menu {
+  ul,
+  li {
+    list-style: none;
+    padding: 0.6rem 0;
+    font-size: 18px;
+  }
+  li {
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+::ng-deep mat-tooltip-component {
+  & .mat-tooltip {
+    background-color: $primary;
+    color: $white;
+    font-size: 1rem; // your custom properties here.
+  }
+}
+::ng-deep .popover-body {
+  width: 400px !important;
+}

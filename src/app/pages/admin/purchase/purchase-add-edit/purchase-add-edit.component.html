@@ -1,0 +1,143 @@
+<section>
+  <div class="d-flex justify-content-between">
+    <h1>{{ !id ? "Add" : "Update" }} Purchase</h1>
+    <div>
+      <a [routerLink]="['/admin/purchase/list']">
+        <img src="/assets/icons/return.svg" class="icons" alt="" />
+      </a>
+    </div>
+  </div>
+
+  <div class="card p-4" *ngIf="purchaseForm">
+    <form [formGroup]="purchaseForm" (ngSubmit)="onSubmit()">
+      <!-- Supplier -->
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <mat-form-field class="w-100">
+            <mat-select
+              formControlName="supplier_id"
+              [(value)]="selectedSupplier"
+              placeholder="Select Supplier"
+            >
+              <mat-option *ngFor="let item of supplierList" [value]="item.value"
+                >{{ item.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <div class="form-group col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>Bill Date</mat-label>
+            <input
+              type="date"
+              formControlName="purchased_at"
+              class="disabled"
+              value="0"
+              matInput
+              placeholder="Enter date"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <ng-container
+        formArrayName="items"
+        *ngFor="
+          let item of purchaseForm.get('items')['controls'];
+          let i = index
+        "
+      >
+        <div [formArrayName]="i" class="form-row">
+          <div class="form-group col-md-3">
+            <mat-form-field class="w-100">
+              <mat-select
+                formControlName="product_id"
+                placeholder="Select Product"
+              >
+                <mat-option
+                  *ngFor="let item of productList"
+                  [value]="item.value"
+                  >{{ item.name }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-1">
+            <mat-form-field class="w-100">
+              <mat-label>Price</mat-label>
+              <input
+                type="number"
+                (input)="calculateTotal()"
+                formControlName="price"
+                matInput
+                placeholder="Enter price"
+              />
+              <!-- <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                    Please enter a valid email address
+                                </mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">
+                                    Email is <strong>required</strong>
+                                </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-1">
+            <mat-form-field class="w-100">
+              <mat-label>Quantity</mat-label>
+              <input
+                type="number"
+                (input)="calculateTotal()"
+                formControlName="quantity"
+                matInput
+                placeholder="Enter quantity"
+              />
+              <!-- <mat-hint>Errors appear instantly!</mat-hint>
+                                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                    Please enter a valid email address
+                                </mat-error>
+                                <mat-error *ngIf="emailFormControl.hasError('required')">
+                                    Email is <strong>required</strong>
+                                </mat-error> -->
+            </mat-form-field>
+          </div>
+          <div class="form-group col-md-1">
+            <img
+              (click)="addItem()"
+              src="/assets/icons/add.svg"
+              class="w-25 h-50cursor-pointer"
+              alt=""
+            />
+            <!-- <mat-form-field class="w-100"> -->
+            <!-- </mat-form-field> -->
+          </div>
+        </div>
+      </ng-container>
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <mat-form-field class="w-100">
+            <mat-label>Total</mat-label>
+            <input
+              type="number"
+              formControlName="total"
+              readonly
+              class="input-disabled"
+              value="0"
+              matInput
+              placeholder="Enter quantity"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="form-row"></div>
+
+      <button
+        type="submit"
+        [disabled]="purchaseForm.invalid"
+        class="btn btn-primary pl-4 pr-4"
+      >
+        {{ !id ? "Add" : "Update" }}
+      </button>
+    </form>
+  </div>
+</section>

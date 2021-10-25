@@ -1,0 +1,80 @@
+<section>
+  <!-- Add expense button -->
+  <div class="d-flex justify-content-between">
+    <div>
+      <h2>
+        <a [routerLink]="['/admin/supplier/add']">
+          <img src="/assets/icons/add-blue.svg" class="action-icons" alt="" />
+          <span class="ml-2 pt-4 mt-4">Add supplier</span>
+        </a>
+      </h2>
+    </div>
+  </div>
+  <!-- Expense table -->
+
+  <div class="table-container" *ngIf="dataSource">
+
+    <div *ngIf="dataSource.length === 0" class="card text-center p-4">
+      <div class="h2">No record found.</div>
+    </div>
+
+    <table
+      *ngIf="dataSource.length"
+      mat-table
+      [dataSource]="dataSource"
+      
+    >
+      <!-- No -->
+      <ng-container matColumnDef="id">
+        <th class="w-75" mat-header-cell *matHeaderCellDef>No.</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Supplier Name-->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Supplier Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <!-- Mobile Number -->
+      <ng-container matColumnDef="mobile">
+        <th mat-header-cell *matHeaderCellDef>Mobile Number</th>
+        <td mat-cell *matCellDef="let element">{{ element.mobile }}</td>
+      </ng-container>
+
+      <!-- Address -->
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef>Address</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.address | limitTo: 80 }}
+        </td>
+      </ng-container>
+
+      <!-- Action -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element">
+          <span class="mr-3">
+            <a [routerLink]="['/admin', 'supplier', 'edit', element.id]">
+              <img class="action-icons" src="/assets/icons/edit.svg" alt="" />
+            </a>
+          </span>
+          <span>
+            <a (click)="onDelete(element.no)">
+              <img class="action-icons" src="/assets/icons/trash.svg" alt="" />
+            </a>
+          </span>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      (page)="changePage($event)"
+      [length]="paginationObj.length"
+      [pageSize]="paginationObj.pageSize"
+      [pageSizeOptions]="paginationObj.pageSizeOptions"
+    >
+    </mat-paginator>
+  </div>
+</section>

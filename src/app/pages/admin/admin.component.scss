@@ -1,0 +1,36 @@
+@import "src/assets/scss/mixin";
+
+.main-section {
+  max-height: calc(100vh - 50px);
+  display: flex;
+  .left-section {
+    width: 100px;
+  }
+  .right-section {
+    margin: auto;
+  }
+}
+
+@include respondMin(xs-phone) {
+  .right-section {
+    width: 70%;
+  }
+}
+
+@include respondMin(sm-phone) {
+  .right-section {
+    width: 75%;
+  }
+}
+
+@include respondMin(md-tab) {
+  .right-section {
+    width: 80%;
+  }
+}
+
+@include respondMin(xl-desktop) {
+  .right-section {
+    width: 90%;
+  }
+}
