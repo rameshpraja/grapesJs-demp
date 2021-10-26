@@ -534,7 +534,7 @@ export const boilerPlate = [
         </div>
     </div>
   `,
-    "flexbox",
+    'flexbox',
   ],
   [
     `
@@ -553,7 +553,7 @@ export const boilerPlate = [
             ad cum perferendis quis minima assumenda?
           </div>
   `,
-    "flex-item",
+    'flex-item',
   ],
   [
     `
@@ -591,184 +591,200 @@ export const boilerPlate = [
        
      
   `,
-    "grid-layout",
+    'grid-layout',
   ],
-  [`
+  [
+    `
   <!DOCTYPE html>
-  <html>
-    <head>
-      <meta charset="utf-8" />
-      <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.css"
-        rel="stylesheet"
-      />
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.min.js"></script>
-      <script type="text/javascript">
-        $(function () {
-          $('.gridster .col')
-            .gridster({
-              widget_margins: [5, 5],
-              widget_base_dimensions: [50, 50],
-              helper: 'clone',
-              widget_selector: 'div.row',
-              max_cols: 25,
-              min_cols: 1,
-              resize: {
-                enabled: true,
-              },
-            })
-            .data('gridster');
-        });
-      </script>
-      <style type="text/css">
-        li {
-          background-color: hotpink;
-          list-style-type: none;
-        }
-        .row {
-          background-color: aquamarine;
-        }
-        .gridster {
-          width: 100%;
-          height: 100%;
-          background-color: bisque;
-        }
-        .gridster > * {
-          margin: 0 !important;
-        }
-  
-        .header {
-          overflow: hidden;
-          background-color: #f1f1f1;
-          padding: 20px 10px;
-        }
-  
-        .header a {
-          float: left;
-          color: black;
-          text-align: center;
-          padding: 12px;
-          text-decoration: none;
-          font-size: 18px;
-          line-height: 25px;
-          border-radius: 4px;
-        }
-  
-        .header a.logo {
-          font-size: 25px;
-          font-weight: bold;
-        }
-  
-        .header a:hover {
-          background-color: #ddd;
-          color: black;
-        }
-  
-        .header a.active {
-          background-color: dodgerblue;
-          color: white;
-        }
-  
-        .header-right {
-          float: right;
-        }
-  
-        .heading {
-          font-size: 20px;
-          text-align: center;
-        }
-        .list {
-          padding-left: 0px;
-        }
-        .list li {
-          height: 40px;
-          text-align: center;
-        }
-        .list li:hover {
-          background-color: grey;
-        }
-      </style>
-      <title></title>
-    </head>
-    <body>
-      <div class="gridster">
-        <div class="col">
-          <div
-            class="row"
-            data-row="2"
-            data-col="1"
-            data-sizex="3"
-            data-sizey="10"
-          >
-            <div class="sidebar">
-              <h6 class="heading">Header</h6>
-              <ul class="list">
-                <li>part1</li>
-                <li>part2</li>
-                <li>part3</li>
-              </ul>
-            </div>
-          </div>
-          <div
-            class="row"
-            data-row="2"
-            data-col="2"
-            data-sizex="1"
-            data-sizey="1"
-          ></div>
-  
-          <div
-            class="row"
-            data-row="1"
-            data-col="1"
-            data-sizex="22"
-            data-sizey="2"
-          >
-            <div class="header">
-              <a href="#default" class="logo">CompanyLogo</a>
-              <div class="header-right">
-                <a class="active" href="#home">Home</a>
-                <a href="#contact">Contact</a>
-                <a href="#about">About</a>
-              </div>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.min.js"></script>
+    <style type="text/css">
+      li {
+        background-color: hotpink;
+        list-style-type: none;
+      }
+      .row {
+        background-color: aquamarine;
+      }
+      .gridster {
+        width: 100%;
+        height: 100%;
+        background-color: bisque;
+      }
+      .gridster > * {
+        margin: 0 !important;
+      }
+
+      .header {
+        overflow: hidden;
+        background-color: #f1f1f1;
+        padding: 20px 10px;
+      }
+
+      .header a {
+        float: left;
+        color: black;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 25px;
+        border-radius: 4px;
+      }
+
+      .header a.logo {
+        font-size: 25px;
+        font-weight: bold;
+      }
+
+      .header a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .header a.active {
+        background-color: dodgerblue;
+        color: white;
+      }
+
+      .header-right {
+        float: right;
+      }
+
+      .heading {
+        font-size: 20px;
+        text-align: center;
+      }
+      .list {
+        padding-left: 0px;
+      }
+      .list li {
+        height: 40px;
+        text-align: center;
+      }
+      .list li:hover {
+        background-color: grey;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <button onclick="addWidget()">Add block</button>
+    <div class="gridster">
+      <div class="col">
+      <div id="iw80m" data-gjs-type="default" draggable="true" data-highlightable="1" data-row="2" data-col="2" data-sizex="1" data-sizey="1" class="row"><li id="i5zts" data-gjs-type="text" draggable="true" data-highlightable="1" class="new">The HTML of the widget...</li></div>
+        <div
+          class="row"
+          data-row="1"
+          data-col="1"
+          data-sizex="22"
+          data-sizey="2"
+        >
+          <div class="header">
+            <a href="#default" class="logo">CompanyLogo</a>
+            <div class="header-right">
+              <a class="active" href="#home">Home</a>
+              <a href="#contact">Contact</a>
+              <a href="#about">About</a>
             </div>
           </div>
         </div>
       </div>
-    </body>
-  </html>  
+    </div>
+  </body>
+  <script type="text/javascript">
+    var gridster;
+    $(function () {
+      gridster = $('.gridster .col')
+        .gridster({
+          widget_margins: [5, 5],
+          widget_base_dimensions: [50, 50],
+          helper: 'clone',
+          widget_selector: 'div.row',
+          max_cols: 25,
+          min_cols: 1,
+          resize: {
+            enabled: true,
+          },
+        })
+        .data('gridster');
+    });
+    function addWidget() {
+      gridster.add_widget(
+        '<li class="new">The HTML of the widget...</li>',
+        2,
+        1
+      );
+    } 
+  </script>
+</html>
+
   `,
-    "gridster",
+    'gridster',
   ],
 ];
 
 export const element = [
   [
-    `<div
-    class="row"
-    data-row="2"
-    data-col="2"
-    data-sizex="1"
-    data-sizey="1"
-  ></div>`,
-    `Dummy div`,
+    `
+    <div
+      style="
+        width: 100%;
+        background-color: rgb(233, 233, 233);
+        min-height: 100px;
+        border: dotted 1px rgb(0, 0, 0);
+        display: flex;
+        flex-direction: row;
+      "
+    ></div>
+    `,
+    `Horizontal gravity div`,
   ],
   [
     `
-    <label for="" style="width: 100%; ">Lable</label>
-    <input type="text" style="width: 100%;">`,
-    `Input`,
+    <div
+      style="
+        width: 100%;
+        background-color: rgb(233, 233, 233);
+        min-height: 100px;
+        border: dotted 1px rgb(0, 0, 0);
+      "
+    ></div>
+    `,
+    `Vertical gravity div`,
   ],
   [
-    `<h2 style="width: 100%; height:100%; margin:0;padding:0;">This is heading</h2>
+    `<div
+    style="
+      width: 20%;
+      display: inline-block;
+      background-color: rgb(233, 210, 210);
+      min-height: 100px;
+      border: dotted 1px rgb(0, 0, 0);
+    "
+    ></div>
     `,
-    `Heading2`,
+    `Small DIv`,
   ],
   [
-    `<div> <button style="margin:0;padding:0; width: 100%; height:100%">Demo button</button> </div>
+    `<div
+    style="
+      width: 80%;
+      display: inline-block;
+      background-color: rgb(233, 210, 210);
+      min-height: 100px;
+      border: dotted 1px rgb(0, 0, 0);
+    "
+    ></div>
     `,
-    `Button`,
+    `Medium DIv`,
   ],
 ];
 

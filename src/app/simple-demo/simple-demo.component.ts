@@ -35,7 +35,7 @@ export class SimpleDemoComponent implements OnInit {
       width: 'auto',
       allowScripts: 1,
       // Disable the storage manager for the moment
-      storageManager: false,
+      storageManager: true,
       // Avoid any default panel
       panels: {
         defaults: [
@@ -302,13 +302,13 @@ export class SimpleDemoComponent implements OnInit {
       });
     });
 
-    // this.editor.on('component:selected', (args: any) => {
-    //   args.set({
-    //     // selectable: false,
-    //     hoverable: true,
-    //     resizable: true,
-    //   });
-    // });
+    this.editor.on('component:selected', (args: any) => {
+      args.set({
+        // selectable: false,
+        hoverable: true,
+        resizable: true,
+      });
+    });
   }
 
   setDevice(device: string) {
