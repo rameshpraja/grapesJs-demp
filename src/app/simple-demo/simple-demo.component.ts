@@ -1,14 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  AboutPages,
-  boilerPlate,
-  ContactPages,
-  element,
-  Features,
-  Headers,
-  layout,
-} from '../utils/section';
+import { banner, header, product } from '../utils/section';
 import { WebBuilderService } from '../web-builder.service';
 
 declare var grapesjs: any;
@@ -35,7 +27,7 @@ export class SimpleDemoComponent implements OnInit {
       width: 'auto',
       allowScripts: 1,
       // Disable the storage manager for the moment
-      storageManager: false,
+      storageManager: true,
       // Avoid any default panel
       panels: {
         defaults: [
@@ -56,11 +48,14 @@ export class SimpleDemoComponent implements OnInit {
       },
       canvas: {
         styles: [
-          'https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.css',
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
+          'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css',
         ],
         scripts: [
-          'https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.js',
-          'https://code.jquery.com/jquery-2.2.4.min.js',
+          'https://code.jquery.com/jquery-3.3.1.slim.min.js',
+          'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js',
+          'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js',
+          'https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js',
         ],
       },
       traitManager: {
@@ -68,6 +63,45 @@ export class SimpleDemoComponent implements OnInit {
       },
       selectorManager: {
         appendTo: '.styles-container',
+      },
+      blockManager: {
+        appendTo: '#blocks',
+        blocks: [
+          {
+            id: 'heading', // id is mandatory
+            label: '<b>Heading</b>', // You can use HTML/SVG inside labels
+            attributes: {
+              class: 'gjs-block-section',
+              href: '/test',
+            },
+            content: `<section>
+              <h1 style="text-align: center;margin: 40px auto;">This is a simple title</h1>`,
+          },
+          {
+            id: 'description',
+            label: 'Description',
+            content:
+              '<div data-gjs-type="text" style="text-align: center;margin: 10px auto;">Insert your text here</div>',
+          },
+          {
+            id: 'image',
+            label: 'Image',
+            select: true,
+            content: { type: 'image' },
+            activate: true,
+          },
+          {
+            id: 'banner',
+            label: 'Banner',
+            content: `<style>.banner {
+              width: 100%;
+              height: 600px;
+              background-image: url(https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+              background-position: center center;
+              background-size: cover;
+            }</style></style><div class="banner"></div>`,
+          },
+        ],
       },
       styleManager: {
         appendTo: '.styles-container',
@@ -114,97 +148,9 @@ export class SimpleDemoComponent implements OnInit {
           },
         ],
       },
-      blockManager: {
-        appendTo: '#blocks',
-        blocks: [
-          {
-            id: 'heading', // id is mandatory
-            label: '<b>Heading</b>', // You can use HTML/SVG inside labels
-            attributes: {
-              class: 'gjs-block-section',
-              href: '/test',
-            },
-            content: `<section>
-              <h1 style="text-align: center;margin: 40px auto;">This is a simple title</h1>`,
-          },
-          {
-            id: 'description',
-            label: 'Description',
-            content:
-              '<div data-gjs-type="text" style="text-align: center;margin: 10px auto;">Insert your text here</div>',
-          },
-          {
-            id: 'image',
-            label: 'Image',
-            select: true,
-            content: { type: 'image' },
-            activate: true,
-          },
-          {
-            id: 'banner',
-            label: 'Banner',
-            content: `<style>.banner {
-              width: 100%;
-              height: 600px;
-              background-image: url(https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-              background-position: center center;
-              background-size: cover;
-            }</style></style><div class="banner"></div>`,
-          },
-        ],
-      },
     });
     this.undoManager = this.editor.UndoManager;
     this.blockManager = this.editor.BlockManager;
-
-    // this.editor.addComponents(`
-    // <link
-    //   rel="stylesheet"
-    //   type="text/css"
-    //   href="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.css"
-    // />
-    // <script
-    //   type="text/javascript"
-    //   src="https://code.jquery.com/jquery-2.2.4.min.js"
-    // ></script>
-    // <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.gridster/0.5.6/jquery.gridster.js"></script>
-    // <script type="text/javascript">
-    //   $(function () {
-    //     $('.gridster ul').gridster({
-    //       widget_margins: [10, 10],
-    //       widget_base_dimensions: [140, 140],
-    //     });
-    //   });
-    // </script>
-    // <style type="text/css">
-    //   li {
-    //     background-color: hotpink;
-    //   }
-    // </style>
-  
-    // <div class="gridster">
-    //   <ul>
-    //     <li data-row="1" data-col="1" data-sizex="1" data-sizey="1"></li>
-    //     <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"></li>
-    //     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"></li>
-
-    //     <li data-row="1" data-col="2" data-sizex="2" data-sizey="1"></li>
-    //     <li data-row="2" data-col="2" data-sizex="2" data-sizey="2"></li>
-
-    //     <li data-row="1" data-col="4" data-sizex="1" data-sizey="1"></li>
-    //     <li data-row="2" data-col="4" data-sizex="2" data-sizey="1"></li>
-    //     <li data-row="3" data-col="4" data-sizex="1" data-sizey="1"></li>
-
-    //     <li data-row="1" data-col="5" data-sizex="1" data-sizey="1"></li>
-    //     <li data-row="3" data-col="5" data-sizex="1" data-sizey="1"></li>
-
-    //     <li data-row="1" data-col="6" data-sizex="1" data-sizey="1"></li>
-    //     <li data-row="2" data-col="6" data-sizex="1" data-sizey="2"></li>
-    //   </ul>
-    // </div>
-
-
-    // `);
     // Make private already inserted selectors
     this.editor.SelectorManager.getAll().each((selector: any) =>
       selector.set('private', 1)
@@ -215,90 +161,30 @@ export class SimpleDemoComponent implements OnInit {
       selector.set('private', 1)
     );
 
-    const layoutSection = layout;
-    layoutSection.forEach((item, i) => {
-      this.blockManager.add('wrapper' + i, {
-        category: 'wrapper',
-        label: 'section ' + (i + 1),
-        content: item,
-        attributes: {
-          draggable: true,
-          name: 'mytable',
-        },
-      });
-    });
-
-    const section = boilerPlate;
-    section.forEach((item, i) => {
+    const Header = header;
+    Header.forEach((item, i) => {
       this.blockManager.add(item[1], {
-        category: 'layout',
-        label: item[1],
-        content: item[0],
-        attributes: {
-          draggable: false,
-          name: 'mytable',
-        },
-      });
-    });
-
-    const elementSection = element;
-    elementSection.forEach((item, i) => {
-      this.blockManager.add('Element' + i, {
-        category: 'Elements',
-        label: item[1],
-        content: item[0],
-        attributes: {
-          draggable: true,
-          name: 'mytable',
-        },
-      });
-    });
-
-    const headerSection = Headers;
-    headerSection.forEach((item, i) => {
-      this.blockManager.add('header' + i, {
         category: 'Header',
-        label: 'Header ' + (i + 1),
-        content: item,
-        attributes: {
-          draggable: false,
-        },
+        label: item[1],
+        content: item[0],
       });
     });
 
-    const featuresPage = Features;
-    featuresPage.forEach((item, i) => {
-      this.blockManager.add('feature' + i, {
-        category: 'Feature',
-        label: 'Feature ' + (i + 1),
-        content: item,
-        attributes: {
-          draggable: false,
-        },
+    const Banner = banner;
+    Banner.forEach((item, i) => {
+      this.blockManager.add(item[1], {
+        category: 'Banner',
+        label: item[1],
+        content: item[0],
       });
     });
 
-    const aboutPages = AboutPages;
-    aboutPages.forEach((item, i) => {
-      this.blockManager.add('about' + i, {
-        category: 'About',
-        label: 'About ' + (i + 1),
-        content: item,
-        attributes: {
-          draggable: false,
-        },
-      });
-    });
-
-    const contactPages = ContactPages;
-    contactPages.forEach((item, i) => {
-      this.blockManager.add('contact' + i, {
-        category: 'Contact',
-        label: 'Contact ' + (i + 1),
-        content: item,
-        attributes: {
-          draggable: false,
-        },
+    const Product = product;
+    Product.forEach((item, i) => {
+      this.blockManager.add(item[1], {
+        category: 'Product',
+        label: item[1],
+        content: item[0],
       });
     });
 
@@ -331,24 +217,23 @@ export class SimpleDemoComponent implements OnInit {
   view(): void {
     const html = this.editor.getHtml();
     // const css = this.editor.getCss();
-    const css =
-      this.editor.getCss() +
-      `.grid-item{
-     border: none !important;
- }`;
+    const css = this.editor.getCss();
+    const js = this.editor.getJs();
     this.save();
     console.log(html);
     console.log(css);
+    console.log(js);
     this.router.navigate(['/', 'preview']);
   }
 
   save(): void {
-    const css =
-      this.editor.getCss() +
-      `.grid-item{
-       border: none !important;
-   }`;
+    const html = this.editor.getHtml();
+    console.log(html);
+    
+    // const css = this.editor.getCss();
+    const css = this.editor.getCss();
+    const js = this.editor.getJs();
 
-    this.webBuilderService.save(this.editor.getHtml(), css);
+    this.webBuilderService.save(html, css, js);
   }
 }

@@ -9,6 +9,7 @@ import { PreviewComponent } from "./preview/preview.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { GridsterModule } from "angular-gridster2";
 import { GridComponent } from "./grid/grid.component";
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GridComponent } from "./grid/grid.component";
     SimpleDemoComponent,
     PreviewComponent,
     GridComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,
