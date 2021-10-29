@@ -150,6 +150,167 @@ export const header = [
   `,
     'Header 2',
   ],
+  [
+    `
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://cdn.logo.com/hotlink-ok/logo-social.png"
+        alt=""
+        srcset=""
+        height="50px"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <form class="form-inline my-2 my-lg-0 position-relative">
+      <input
+        id="searchValue"
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        oninput="search(this)"
+      />
+      <div
+        class="dropdown-menu"
+        id="suggestionbar"
+        aria-labelledby="navbarDropdown"
+        style="max-width: 300px; overflow: hidden"
+      ></div>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="searchBtn()">
+        Search
+      </button>
+    </form>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+          >
+            Product 1
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Sub product1</a>
+            <a class="dropdown-item" href="#">Sub product2</a>
+            <a class="dropdown-item" href="#">Sub product3</a>
+            <a class="dropdown-item" href="#">Sub product4</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+          >
+            Product 2
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Sub product1</a>
+            <a class="dropdown-item" href="#">Sub product2</a>
+            <a class="dropdown-item" href="#">Sub product3</a>
+            <a class="dropdown-item" href="#">Sub product4</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+          >
+            Product 3
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Sub product1</a>
+            <a class="dropdown-item" href="#">Sub product2</a>
+            <a class="dropdown-item" href="#">Sub product3</a>
+            <a class="dropdown-item" href="#">Sub product4</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+          >
+            Product 4
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Sub product1</a>
+            <a class="dropdown-item" href="#">Sub product2</a>
+            <a class="dropdown-item" href="#">Sub product3</a>
+            <a class="dropdown-item" href="#">Sub product4</a>
+          </div>
+        </li>
+        <li class="nav-item m-auto">
+          <i class="fa fa-shopping-cart" style="font-size: 18px"></i>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <script>
+    const searchBox = document.getElementById('suggestionbar');
+    const xhttp = new XMLHttpRequest();
+    let response;
+    xhttp.onload = function () {
+      response = JSON.parse(this.responseText);
+    };
+    xhttp.open('GET', 'https://fakestoreapi.com/products', true);
+    xhttp.send();
+    document.querySelectorAll('.dropdown-toggle').forEach((element) =>
+      element.addEventListener('click', function () {
+        nextNode = this.nextElementSibling;
+        if (!nextNode.classList.contains('show')) {
+          nextNode.classList.add('show');
+        } else {
+          nextNode.classList.remove('show');
+        }
+      })
+    );
+    function search(key) {
+      if (!searchBox.classList.contains('d-block')) {
+        searchBox.classList.add('d-block');
+      }
+      let result = [];
+      response.forEach((element) => {
+        if (element.title.toLowerCase().includes(key.value.toLowerCase())) {
+          result.push(element);
+        }
+      });
+      if (result.length > 0) {
+        searchBox.innerHTML = '';
+        result.forEach((element) => {
+          searchBox.innerHTML += '<a class="dropdown-item suggestion item" href="#">' + element.title + '</a>';
+        });
+      } else {
+        searchBox.innerHTML = '<a class="dropdown-item suggestion item" href="#">No result found</a>';
+      }
+    }
+    function searchBtn() {
+      searchBox.classList.remove('d-block');
+    }
+  </script>
+  `,
+    'Header 3',
+  ],
 ];
 
 export const banner = [

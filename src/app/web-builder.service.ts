@@ -10,12 +10,10 @@ export class WebBuilderService {
   js: any;
   constructor(private sanitizer: DomSanitizer) {}
 
-  save(html: any, css: any, js: any) {
-    this.html =
-    //  this.sanitizer.bypassSecurityTrustHtml(
-      html + '<style>' + css + '</style>' + '<script>' + js + '</script>'
-    // );
+  save(html: any, css: any) {
+    this.html = this.sanitizer.bypassSecurityTrustHtml(
+      html + '<style>' + css + '</style>'
+    );
     console.log(this.html);
-    
   }
 }

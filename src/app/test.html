@@ -49,7 +49,7 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0 position-relative">
         <input
           id="searchValue"
           class="form-control mr-sm-2"
@@ -58,7 +58,17 @@
           aria-label="Search"
           oninput="search(this)"
         />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        <div
+          class="dropdown-menu"
+          id="suggestionbar"
+          aria-labelledby="navbarDropdown"
+          style="max-width: 300px; overflow: hidden"
+        ></div>
+        <button
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="submit"
+          onclick="searchBtn()"
+        >
           Search
         </button>
       </form>
@@ -138,6 +148,7 @@
       </div>
     </nav>
     <script>
+      const searchBox = document.getElementById('suggestionbar');
       const xhttp = new XMLHttpRequest();
       let response;
       xhttp.onload = function () {
@@ -156,13 +167,26 @@
         })
       );
       function search(key) {
+        if (!searchBox.classList.contains('d-block')) {
+          searchBox.classList.add('d-block');
+        }
         let result = [];
         response.forEach((element) => {
           if (element.title.toLowerCase().includes(key.value.toLowerCase())) {
             result.push(element);
           }
         });
-        console.log(result);
+        if (result.length > 0) {
+          searchBox.innerHTML = '';
+          result.forEach((element) => {
+            searchBox.innerHTML += `<a class="dropdown-item suggestion item" href="#">${element.title}</a>`;
+          });
+        } else {
+          searchBox.innerHTML = `<a class="dropdown-item suggestion item" href="#">No result found</a>`;
+        }
+      }
+      function searchBtn() {
+        searchBox.classList.remove('d-block');
       }
     </script>
   </body>

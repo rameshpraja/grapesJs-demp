@@ -66,42 +66,7 @@ export class SimpleDemoComponent implements OnInit {
       },
       blockManager: {
         appendTo: '#blocks',
-        blocks: [
-          {
-            id: 'heading', // id is mandatory
-            label: '<b>Heading</b>', // You can use HTML/SVG inside labels
-            attributes: {
-              class: 'gjs-block-section',
-              href: '/test',
-            },
-            content: `<section>
-              <h1 style="text-align: center;margin: 40px auto;">This is a simple title</h1>`,
-          },
-          {
-            id: 'description',
-            label: 'Description',
-            content:
-              '<div data-gjs-type="text" style="text-align: center;margin: 10px auto;">Insert your text here</div>',
-          },
-          {
-            id: 'image',
-            label: 'Image',
-            select: true,
-            content: { type: 'image' },
-            activate: true,
-          },
-          {
-            id: 'banner',
-            label: 'Banner',
-            content: `<style>.banner {
-              width: 100%;
-              height: 600px;
-              background-image: url(https://images.pexels.com/photos/1642125/pexels-photo-1642125.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
-              background-position: center center;
-              background-size: cover;
-            }</style></style><div class="banner"></div>`,
-          },
-        ],
+        blocks: [],
       },
       styleManager: {
         appendTo: '.styles-container',
@@ -218,22 +183,15 @@ export class SimpleDemoComponent implements OnInit {
     const html = this.editor.getHtml();
     // const css = this.editor.getCss();
     const css = this.editor.getCss();
-    const js = this.editor.getJs();
     this.save();
-    console.log(html);
-    console.log(css);
-    console.log(js);
     this.router.navigate(['/', 'preview']);
   }
 
   save(): void {
     const html = this.editor.getHtml();
-    console.log(html);
-    
     // const css = this.editor.getCss();
     const css = this.editor.getCss();
-    const js = this.editor.getJs();
 
-    this.webBuilderService.save(html, css, js);
+    this.webBuilderService.save(html, css);
   }
 }
