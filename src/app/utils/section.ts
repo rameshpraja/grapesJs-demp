@@ -1,4 +1,198 @@
 export const header = [
+  [`
+  <style>
+      .list {
+        padding: 10px 0px;
+        display: table-cell;
+        cursor: pointer;
+      }
+      .list:hover .dropdown-content {
+        background-color: #f1f1f1;
+        display: block;
+        left: 0px;
+        width: 100%;
+        border: solid 1px#eee;
+        background-color: #fff;
+        color: #000;
+        font-size: 15px;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        top: 45px;
+      }
+      a {
+        color: white !important;
+      }
+    </style>
+  <header style="position: relative; z-index: 9" class="container-screen">
+  <div class="clearfix mobile-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div
+            class="header-currency d-flex"
+            style="margin-top: 7.5%; vertical-align: top"
+          >
+            <div class="currency" style="line-height: 2">Currency:</div>
+            <div class="dropdown mx-2">
+              <button
+                class="btn btn-secondary dropdown-toggle"
+                type="button"
+                id="dropdownMenuButton"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                EN
+              </button>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownMenuButton"
+              >
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="logo d-flex justify-content-center">
+            <a href="">
+              <img
+                src="https://www.kuberindustries.co.in/uploads/kuberindustries/images/kuber-l00go-769839_header_logo.jpg?v=1"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row justify-content-end" style="margin-top: 7.5%">
+            <span class="mx-1"> Login or Signup </span>
+            <span class="mx-1"> | Cart </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clearfix mobile-header mt-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <nav
+            style="
+              position: relative;
+              padding: 0;
+              margin: 0 auto;
+              padding: 0 10px;
+
+              width: 100%;
+              background-color: #1d374e;
+            "
+          >
+            <ul
+              style="
+                position: relative;
+                padding: 0;
+                margin: 0 auto;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                color: white;
+                list-style: none;
+              "
+            >
+              <li class="list">
+                <a href="">Home</a>
+              </li>
+              <li class="list">
+                Home Storage & Organization
+                <i id="it2u9" class="fa fa-sort-desc"></i>
+                <div class="dropdown-content">
+                  <div class="row">
+                    <div class="col-md-2">Saree Covers</div>
+                    <div class="col-md-2">Jewellery Organiser</div>
+                    <div class="col-md-2">Space Saver Bags</div>
+                    <div class="col-md-2">Shirt Trouser / Suit Cover</div>
+                    <div class="col-md-2">Bangle Boxes</div>
+                    <div class="col-md-2">Boxes Basket & Bins</div>
+                    <div class="col-md-2">Wardrobe Organiser</div>
+                    <div class="col-md-2">Kits & Pouches</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                Home Furnishing <i id="it2u9" class="fa fa-sort-desc"></i>
+                <div class="dropdown-content">
+                  <div class="row">
+                    <div class="col-md-2">Saree Covers</div>
+                    <div class="col-md-2">Jewellery Organiser</div>
+                    <div class="col-md-2">Space Saver Bags</div>
+                    <div class="col-md-2">Shirt Trouser / Suit Cover</div>
+                    <div class="col-md-2">Bangle Boxes</div>
+                    <div class="col-md-2">Boxes Basket & Bins</div>
+                    <div class="col-md-2">Wardrobe Organiser</div>
+                    <div class="col-md-2">Kits & Pouches</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                Utilities <i id="it2u9" class="fa fa-sort-desc"></i>
+                <div class="dropdown-content">
+                  <div class="row">
+                    <div class="col-md-2">Saree Covers</div>
+                    <div class="col-md-2">Jewellery Organiser</div>
+                    <div class="col-md-2">Space Saver Bags</div>
+                    <div class="col-md-2">Shirt Trouser / Suit Cover</div>
+                    <div class="col-md-2">Bangle Boxes</div>
+                    <div class="col-md-2">Boxes Basket & Bins</div>
+                    <div class="col-md-2">Wardrobe Organiser</div>
+                    <div class="col-md-2">Kits & Pouches</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                Bags, Wallets and Luggage
+                <i id="it2u9" class="fa fa-sort-desc"></i>
+                <div class="dropdown-content">
+                  <div class="row">
+                    <div class="col-md-2">Saree Covers</div>
+                    <div class="col-md-2">Jewellery Organiser</div>
+                    <div class="col-md-2">Space Saver Bags</div>
+                    <div class="col-md-2">Shirt Trouser / Suit Cover</div>
+                    <div class="col-md-2">Bangle Boxes</div>
+                    <div class="col-md-2">Boxes Basket & Bins</div>
+                    <div class="col-md-2">Wardrobe Organiser</div>
+                    <div class="col-md-2">Kits & Pouches</div>
+                  </div>
+                </div>
+              </li>
+              <li class="list">
+                Apparels <i id="it2u9" class="fa fa-sort-desc"></i>
+                <div class="dropdown-content">
+                  <div class="row">
+                    <div class="col-md-2">Saree Covers</div>
+                    <div class="col-md-2">Jewellery Organiser</div>
+                    <div class="col-md-2">Space Saver Bags</div>
+                    <div class="col-md-2">Shirt Trouser / Suit Cover</div>
+                    <div class="col-md-2">Bangle Boxes</div>
+                    <div class="col-md-2">Boxes Basket & Bins</div>
+                    <div class="col-md-2">Wardrobe Organiser</div>
+                    <div class="col-md-2">Kits & Pouches</div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+  `,'header 0'
+  ],
   [
     `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
